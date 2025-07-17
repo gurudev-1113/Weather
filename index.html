@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title> 
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+ 
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="rainy.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-overlay"></div>
+
+  <header class="navbar glass">
+    <h1>🌧️ Weather Dashboard</h1> 
+  </header>
+
+  
+  <main class="container glass">
+    <div class="weather-input">
+      <div class="input-group">
+        <input type="text" id="userLocation" placeholder="Search for place" />
+        <select id="converter">
+          <option value="metric">°C</option>
+          <option value="imperial">°F</option>
+        </select>
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="weatherIcon"></div>
+      <h2 class="temperature"></h2>
+      <div class="feelslike"></div>
+      <div class="description"></div>
+      <hr />
+      <div class="date"></div>
+      <div class="city"></div>
+    </div>
+
+    <div class="weather-output">
+      <h2 class="heading">Today Highlights:</h2>
+      <div class="highlights">
+        <div><i class="fa-solid fa-droplet"></i><h3>Humidity</h3><h1 id="Hvalue">--%</h1></div>
+        <div><i class="fa-solid fa-wind"></i><h3>Wind Speed</h3><h1 id="Wvalue">--</h1></div>
+        <div>
+          <i class="fa-solid fa-sun"></i><h3>Sunrise / Sunset</h3>
+          <p><span id="SRValue">--</span> Sunrise</p>
+          <p><span id="SSValue">--</span> Sunset</p>
+        </div>
+        <div><i class="fa-solid fa-cloud"></i><h3>Clouds</h3><h1 id="Cvalue">--%</h1></div>
+        <div><i class="fa-solid fa-volcano"></i><h3>Pressure</h3><h1 id="Pvalue">-- hPa</h1></div>
+      </div>
+
+      <h2 class="heading">This Week:</h2>
+      <div class="Forecast"></div>
+    </div>
+  </main>
+
+  
+  <footer class="footer glass">
+    <p>Made by Gurudev | © 2025</p>
+  </footer>
+</body>
+</html>

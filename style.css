@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 2;
+}
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* You can increase to 0.5 or 0.6 if needed */
+  z-index: -1; /* Above video, below all other content */
+}
+
+/* Raindrop animation */
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+}
+.raindrop {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.4);
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(-10px); opacity: 0.6; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  border-radius: 12px;
+  font-size: 24px;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 95%;
+  margin: 1rem auto;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Input Section */
+.weather-input {
+  width: 40%;
+  padding: 2rem;
+}
+.input-group {
+  position: relative;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+}
+.input-group input {
+  background: rgba(255, 255, 255, 0.8);
+  color: #222;
+  text-transform: capitalize;
+  padding: 1rem;
+  font-size: 15px;
+  border-radius: 6px;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+.input-group select {
+  position: absolute;
+  right: 45px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  color: #333;
+}
+.input-group .fa-search {
+  position: absolute;
+  right: 15px;
+  color: #444;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Output Section */
+.weather-output {
+  width: 60%;
+  padding: 2rem;
+}
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.highlights div {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+.Forecast {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.Forecast > div {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  padding: 1rem;
+  color: white;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem 0;
+  margin-top: auto;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .weather-input,
+  .weather-output {
+    width: 100%;
+  }
+  .highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .Forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 480px) {
+  .highlights,
+  .Forecast {
+    grid-template-columns: 1fr;
+  }
+  .navbar {
+    font-size: 16px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .footer {
+    font-size: 12px;
+  }
+}
+.this-week-heading {
+  margin-top: 20px;
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.this-week-heading.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
