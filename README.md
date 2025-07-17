@@ -2,7 +2,8 @@
 
 A modern, visually appealing weather app that provides current weather data, highlights, and a 5-day forecast — all with a dynamic video background and glassmorphism design.
 
-![screenshot](preview.png) <!-- Optional: Replace with actual screenshot -->
+### 🌤️ Main Dashboard
+![Main UI](preview.png)
 
 ## 🚀 Features
 
